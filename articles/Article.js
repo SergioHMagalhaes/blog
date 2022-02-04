@@ -17,6 +17,7 @@ const Article = connetion.define('articles',{
     }
 })
 
+//Article.sync({force: true})
 
 Category.hasMany(Article)
 Article.belongsTo(Category)

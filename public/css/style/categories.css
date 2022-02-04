@@ -1,0 +1,37 @@
+.table-bordered{
+    border-width: medium;
+    border-style: solid;
+    border-color: #323238;
+    
+}
+
+th{
+    border-width: medium;
+    border-style: solid;
+    border-color: #323238;
+}
+
+.tr-action{
+    width: 12vw;
+}
+
+.m-action{
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.btn-border-lilac{
+    border-width: medium;
+    border-style: solid;
+    border-color: #8257E5;
+}
+
+.inputModal:not(:placeholder-shown){
+    background-color: #202024;
+    color: #FFF;
+    border-color: #8257E5;
+}
+
+.inputModal:placeholder-shown{
+    background-color: #202024;
+}

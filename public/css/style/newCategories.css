@@ -1,0 +1,26 @@
+body{
+    background-color: #121214;
+    color: #FFF;
+}
+
+.navbarApp{
+    background-color: #202024;
+}
+
+.btn-lilac{
+    background-color: #8257E5;
+    color: #FFF;
+}
+
+.btn-lilac:hover{
+    background-color: #996DFF;
+
+}
+
+.card-color{
+    background-color: #202024;
+}
+
+.mr{
+    margin-right: auto;
+}
