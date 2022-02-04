@@ -12,7 +12,13 @@
             
             <form method="POST" action="/articles/save">
                 <input class="form-control w-75 p-2 my-4 m-auto" type="text" name="title" placeholder="Defina o título do artigo">
-                <textarea class="w-75  m-auto form-control" name="body" cols="30" rows="10"></textarea>
+                <textarea class="w-75  m-auto form-control" name="body" id="bodyArticles" cols="30" rows="10"></textarea>
+                <label class="form-label mt-4">Categorias</label>
+                <select name="category" class="w-50 m-auto form-control">
+                    <% categories.forEach((category) => { %> 
+                        <option value="<%= category.id %> "><%= category.title %> </option>
+                    <% }) %> 
+                </select>
                 <button type="submit" class=" mt-4 btn text-light btn-lilac">Cadastrar</button>
             </form>
             </div>
@@ -20,3 +26,14 @@
 </div>
 </body>
 <%- include('../../partials/footer.ejs') %> 
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        language: 'pt_BR',
+        selector: '#bodyArticles',
+        plugins: [
+            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+        ]
+    })
+</script>
