@@ -1,0 +1,15 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2090 565" width="2090" height="565">
+	<title>Novo Projeto</title>
+	<defs>
+		<linearGradient id="g1" x1="778.2" y1="1014.1" x2="-96.3" y2="353" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#45108a"/>
+			<stop offset=".3" stop-color="#3d065f"/>
+			<stop offset="1" stop-color="#12054e"/>
+			<stop offset="1" stop-color="#10054d"/>
+		</linearGradient>
+	</defs>
+	<style>
+		.s0 { fill: url(#g1) } 
+	</style>
+	<path id="&lt;Path&gt;" class="s0" d="m0 0h2090v565h-2090z" />
+</svg>
