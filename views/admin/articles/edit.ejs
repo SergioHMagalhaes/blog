@@ -1,0 +1,56 @@
+<%- include('../../partials/head.ejs') %> 
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+
+    <div class="container w-50">
+        <div class="card card-color mt-5" >
+            <div class="card-title mt-4 text-center">
+                <h2>Editar artigos</h2>
+            </div>
+
+        <div class="card-body text-center ">
+            
+            <form method="POST" action="/articles/update">
+                <input class="form-control w-75 p-2 my-4 m-auto" type="text" name="title" placeholder="Defina o título do artigo" value="<%= articles.title %> ">
+                <textarea class="w-75  m-auto form-control" name="body" id="bodyArticles" cols="30" rows="10"></textarea>
+                <label class="form-label mt-4">Categorias</label>
+                <select name="category" class="w-50 m-auto form-control">
+                    <% categories.forEach((category) => { %> 
+
+                        <% if(category.id == articles.categoryId){ %>
+                            <option value="<%= category.id %> " selected ><%= category.title %> </option>
+                        <% } else{ %>
+                            <option value="<%= category.id %> "><%= category.title %> </option>
+                        <% } %> 
+                        
+                    <% }) %> 
+                </select>
+                <input type="hidden" name="id" value="<%= articles.id %> ">
+                <button type="submit" class=" mt-4 btn text-light btn-lilac">Atualizar</button>
+            </form>
+            </div>
+        </div>
+</div>
+
+<div id="article" style="display: none;">
+    <%- articles.body %> 
+</div>
+
+</body>
+<%- include('../../partials/footer.ejs') %> 
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    const article = document.getElementById('article')
+    tinymce.init({
+        language: 'pt_BR',
+        selector: '#bodyArticles',
+        plugins: [
+            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+        ],
+        init_instance_callback: () => {
+            tinymce.get('bodyArticles').setContent((article.innerHTML))
+        }
+    })
+
+</script>

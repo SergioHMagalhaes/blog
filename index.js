@@ -27,12 +27,72 @@ app.use('/', articlesController)
 app.get('/',(req, res) => {
     
     Article.findAll({
-        include: [{model: Category}]
+        include: [{model: Category}],
+        order: [
+            ['id','DESC']
+        ],
+        limit: 9
     }).then((articles) => {
-        res.render('index',{articles: articles})
+
+        Category.findAll().then((categories => {
+            res.render('index',{articles: articles, categories: categories})
+        }))
+        
     })
     
 })
+
+app.get('/:slug', (req, res) => {
+
+    let slug = req.params.slug
+
+    Article.findOne({
+        where: {
+            slug: slug
+        }
+    }).then((article) => {
+        if(article != undefined){
+            Category.findAll().then((categories => {
+                res.render('article',{article: article, categories: categories})
+            }))
+            
+        }
+        else{
+            res.redirect('/')
+        }
+    }).catch((error) => {
+        res.redirect('/')
+    })
+})
+
+
+app.get('/category/:slug', (req, res) => {
+
+    let slug = req.params.slug
+
+    Category.findOne({
+        where: {
+            slug: slug
+        },
+        include: [{model: Article}]
+    }).then(category => {
+
+        if(category != undefined){
+
+            Category.findAll().then(categories => {
+                res.render('category',{categories: categories, articles: category.articles, title: category.title})
+            })
+
+        }
+        else{
+            res.redirect('/')
+        }
+
+    }).catch(error => {
+        res.redirect('/')
+    })
+})
+
 
 app.listen(port,'0.0.0.0',() => {
     console.log(`✅ Servidor está rodando na porta ${port}`)

@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .card-home{
     background-color: #202024;
     width: 400px;
@@ -40,4 +44,18 @@
 
 .navbarHome{
     background-color: #121214;
+}
+
+.decoration-none{
+    text-decoration: none;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.img{
+    max-width:100%;
+    min-height:510px;
 }

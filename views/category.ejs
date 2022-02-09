@@ -1,0 +1,33 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbarHome.ejs') %>
+<body>
+   <div class="banner">
+       <div class="align-banner">
+            <h1> <%= title %> </h1>
+            
+       </div>
+       
+   </div>
+    <div class="container">
+        <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-xs-1">
+            <% articles.forEach(article => {%> 
+
+                <div class="col">
+                    <a class="text-light decoration-none" href="/<%= article.slug %> ">
+                        <div class="card card-home">
+                            <img class="card-img-top" src="/img/banner-padrao.svg" alt="Futuristic HUD illustration">
+                            <div class="card-body">
+                                <span> <%= title %> </span>
+                                <h5 class="card-title"> <%= article.title %> </h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            <% }) %> 
+        </div>
+    </div>
+
+</body>
+
+<%- include('partials/footer.ejs') %> 
