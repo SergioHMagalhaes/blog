@@ -1,0 +1,23 @@
+<%- include('../../partials/head.ejs') %> 
+
+<body>
+    <div class="container">
+            <div class="row">
+            <div class="col form-register">
+                <div class=" form-position">
+                    <form method="POST" action="/authenticate">
+                        <h2>Fazer Login</h2>
+                        <input class="form-control w-100 mb-3 inputDark" name="email" type="text" placeholder="Seu E-mail">
+                        <input class="form-control w-100 mb-3 inputDark" name="password" type="password" placeholder="Sua Senha">
+                        <button class="btn btn-lilac ">Entrar</button>
+                        <p><a class="text-light" href="/register">Criar um conta</a></p>
+                    </form>
+                </div>
+            </div>
+            <img class="col w-25 img-register" src="/img/login.svg" alt="">
+        </div>
+        
+    </div>
+</body>
+
+<%- include('../../partials/footer.ejs') %> 
