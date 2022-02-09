@@ -29,6 +29,7 @@ th{
 .inputModal:not(:placeholder-shown){
     background-color: #202024;
     color: #FFF;
+
     border-color: #8257E5;
 }
 

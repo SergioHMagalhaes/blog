@@ -2,11 +2,15 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const connetion = require('./data/database')
-const categoriesController = require('./categories/CategoriesController')
-const articlesController = require('./articles/ArticlesController')
-const Article = require('./articles/Article')
-const Category = require('./categories/Category')
 const port = 8080
+
+const Category = require('./categories/Category')
+const categoriesController = require('./categories/CategoriesController')
+const Article = require('./articles/Article')
+const articlesController = require('./articles/ArticlesController')
+const User = require('./user/User')
+const UsersController = require('./user/UsersContoller')
+
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -21,8 +25,9 @@ connetion.authenticate()
     })
 
 app.use('/', categoriesController);
-
 app.use('/', articlesController)
+app.use('/', UsersController)
+
 
 app.get('/',(req, res) => {
     
